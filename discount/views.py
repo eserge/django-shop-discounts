@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.views.generic.edit import CreateView
 from django.views.generic import View
 from django.shortcuts import redirect

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls.defaults import url, patterns
 
 from discount.views import CartDiscountCodeDeleteView, CartDiscountCodeCreateView

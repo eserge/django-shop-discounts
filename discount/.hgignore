@@ -1,0 +1,9 @@
+syntax: regexp
+\.pydevproject
+\.project
+\.settings
+.*~$
+.*\.pyc$
+.*\.pyo$
+.*\.orig$
+

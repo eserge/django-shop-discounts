@@ -1,0 +1,28 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_modify adminmedia %}
+
+{% block extrahead %}{{ block.super }}
+<script>
+	django.jQuery(function(){
+		$ = django.jQuery;
+		$("#id_is_unique_code_discount").click(function(){
+			$("li.uniquecode").css('display', (this.checked)?"block":"none");
+			$("#id_code").get(0).disabled = this.checked;
+		});
+		discount_checkbox = $("#id_is_unique_code_discount").get(0)
+		if (discount_checkbox.checked) {
+			$("li.uniquecode").css("display", "block");
+			$("#id_code").get(0).disabled = discount_checkbox.checked;
+		}
+	});
+</script>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<style>li.uniquecode {display:none;}</style>{% endblock %}
+
+{% block object-tools-items %}
+<li class="uniquecode"><a href="./view_codes/" target="_blank">Просмотр кодов</a></li>
+<li class="uniquecode"><a href="./generate_codes/" target="_blank">Генерация кодов</a></li>
+<li><a href="history/" class="historylink">{% trans "History" %}</a></li>
+{% if has_absolute_url %}<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif%}
+{% endblock %}

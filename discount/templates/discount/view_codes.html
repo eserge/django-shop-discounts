@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block title %}Имеющиеся коды{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+{% block content %}
+<p>Покупатели могут использовать следющие коды для получения скидки "{{ discount.title }}" ({{ discount.amount }}%):</p>
+{% include "discount/include/codes_list_as_textarea.html" %}
+<p>Всего: {{ codes|length }}</p>
+<p>{% include "discount/include/button_close.html" %}</p>
+{% endblock %}

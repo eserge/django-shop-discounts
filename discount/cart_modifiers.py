@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from shop.cart.cart_modifiers_base import BaseCartModifier
 
 from models import DiscountBase

@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block title %}Сгенерировать коды{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+{{ form.non_field_errors }}
+{% for field in form %}
+	{% if not field.is_hidden %}
+	<p>
+		{{ field.errors }}
+		<b>{{ field.label_tag }}:</b> {{ field }}
+	</p>
+	{% else %}
+	<p style="display:none;">{{ field.label_tag }}{{ field }}</p>
+	{% endif %}
+{% endfor %}
+<input type="submit" value="Сгенерировать">
+</form>
+<p>{% include "discount/include/button_close.html" %}</p>
+{% endblock %}
